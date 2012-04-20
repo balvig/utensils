@@ -23,29 +23,6 @@ module Utensils
       HaveModel.new(model)
     end
 
-    class HaveNoModel
-      def initialize(model)
-        @model_id = ApplicationController.helpers.dom_id(model)
-      end
-
-      def matches?(page)
-        @page = page
-        @page.has_no_css?("##{@model_id}")
-      end
-
-      def failure_message_for_should
-        "expected #{@page.body} to not contain element with id: #{@model_id}"
-      end
-
-      def failure_message_for_should_not
-        "expected #{@page.body} to contain element with id: #{@model_id}"
-      end
-    end
-
-    def have_no_model(model)
-      HaveNoModel.new(model)
-    end
-
     class HaveClass
       def initialize(class_name)
         @class_name = class_name
