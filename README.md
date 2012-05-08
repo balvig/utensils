@@ -50,7 +50,7 @@ Sets up rspec to use database_cleaner instead of transactional fixtures
 Provides fixture_file helper pointing to spec/fixtures directory
 
 ```ruby
-Photo.create(:file => 'dummy.jpg') #attaches spec/fixtures/dummy.jpg
+Photo.create(:file => fixture_file('dummy.jpg')) #attaches spec/fixtures/dummy.jpg
 ```
 
 ### vcr
