@@ -17,8 +17,8 @@ Add this line to your application's Gemfile:
 require 'utensils/capybara_extensions'
 require 'utensils/custom_matchers'
 require 'utensils/database_cleaner'
-require 'utensils/upload_macros'
 require 'utensils/timecop'
+require 'utensils/upload_macros'
 require 'utensils/vcr'
 ```
 
