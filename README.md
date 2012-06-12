@@ -18,6 +18,7 @@ require 'utensils/capybara_extensions'
 require 'utensils/custom_matchers'
 require 'utensils/database_cleaner'
 require 'utensils/upload_macros'
+require 'utensils/timecop'
 require 'utensils/vcr'
 ```
 
@@ -27,7 +28,7 @@ Allows you to use active record objects with capybara finders
 
 ```ruby
 page.within(post) { click_link('Edit') }
-page.find(book_2).drag_to(page.find(book_1)) 
+page.find(book_2).drag_to(page.find(book_1))
 ```
 
 ### custom_matchers
@@ -44,6 +45,10 @@ page.should have_order(recipe_3, recipe_1, recipe_2) #checks that objects are in
 ### database_cleaner
 
 Sets up rspec to use database_cleaner instead of transactional fixtures
+
+### timecop
+
+Resets timecop after each spec
 
 ### upload_macros
 
