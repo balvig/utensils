@@ -6,7 +6,7 @@ Rspec stuff we use over and over again
 
 Add this line to your application's Gemfile:
 
-    gem 'utensils'
+    gem 'utensils', :group => :test
 
 ## Usage
 
