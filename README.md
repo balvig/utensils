@@ -15,6 +15,7 @@ Add this line to your application's Gemfile:
 
 ```ruby
 require 'utensils/capybara_extensions'
+require 'utensils/capybara_javascript'
 require 'utensils/custom_matchers'
 require 'utensils/database_cleaner'
 require 'utensils/timecop'
@@ -30,6 +31,11 @@ Allows you to use active record objects with capybara finders
 page.within(post) { click_link('Edit') }
 page.find(book_2).drag_to(page.find(book_1))
 ```
+
+### capybara_javascript
+
+Switches javascript driver to capybara-webkit and ignores hidden
+elements.
 
 ### custom_matchers
 
