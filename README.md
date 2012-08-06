@@ -47,7 +47,7 @@ page.should have_model(post) #looks for dom_id(post)
 page.find(post).should have_class('current') #presence of html class
 page.should have_image('banner.jpg') #presence of img
 page.should have_image(recipe.photo) #presence of dragonfly photo
-page.should have_order(recipe_3, recipe_1, recipe_2) #checks that objects are in a specific order
+page.should have_order(recipe_3, recipe_1, recipe_2, within: '#recipes') #checks that objects are in a specific order
 ```
 
 ### database_cleaner
