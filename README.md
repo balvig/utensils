@@ -18,6 +18,7 @@ require 'utensils/capybara_extensions'
 require 'utensils/capybara_javascript'
 require 'utensils/custom_matchers'
 require 'utensils/database_cleaner'
+require 'utensils/factory_girl'
 require 'utensils/timecop'
 require 'utensils/upload_macros'
 require 'utensils/vcr'
@@ -48,9 +49,22 @@ page.should have_image('banner.jpg') #presence of img
 page.should have_image(recipe.photo) #presence of dragonfly photo
 page.should have_order(recipe_3, recipe_1, recipe_2) #checks that objects are in a specific order
 ```
+
 ### database_cleaner
 
 Sets up rspec to use database_cleaner instead of transactional fixtures
+
+### factory_girl
+
+Use shorthand for FactoryGirl, ie:
+
+```ruby
+create(:post)
+
+# instead of
+
+FactoryGirl.create(:post)
+```
 
 ### timecop
 
