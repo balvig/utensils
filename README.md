@@ -59,11 +59,11 @@ Sets up rspec to use database_cleaner instead of transactional fixtures
 Use shorthand for FactoryGirl, ie:
 
 ```ruby
-create(:post)
-
-# instead of
-
+# instead of:
 FactoryGirl.create(:post)
+
+# use:
+create(:post)
 ```
 
 ### timecop
