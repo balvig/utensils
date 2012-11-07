@@ -98,7 +98,7 @@ module Utensils
               dragonfly_job = Dragonfly::Job.deserialize(dragonfly_hash, Dragonfly[:images])
               return true if dragonfly_job.uid == @image.send(:uid)
             rescue Dragonfly::Serializer::BadString
-              continue
+              next
             end
           end
         end
