@@ -94,8 +94,12 @@ module Utensils
           url = img['src']
           dragonfly_hash = url[/media\/([^\/.]+)/, 1]
           if dragonfly_hash
-            dragonfly_job = Dragonfly::Job.deserialize(dragonfly_hash, Dragonfly[:images])
-            return true if dragonfly_job.uid == @image.send(:uid)
+            begin
+              dragonfly_job = Dragonfly::Job.deserialize(dragonfly_hash, Dragonfly[:images])
+              return true if dragonfly_job.uid == @image.send(:uid)
+            rescue Dragonfly::Serializer::BadString
+              continue
+            end
           end
         end
         return false
