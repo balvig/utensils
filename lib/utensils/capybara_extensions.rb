@@ -1,10 +1,4 @@
-module Capybara
-  module Node
-    module Finders
-      def find(*args)
-        args = '#' + ApplicationController.helpers.dom_id(args.first) if args.first.respond_to?(:to_key)
-        wait_until { first(*args) or raise_find_error(*args) }
-      end
-    end
-  end
+Capybara.add_selector :record do
+  xpath { |record| XPath.css("#" + ActionController::RecordIdentifier.dom_id(record)) }
+  match { |record| record.is_a?(ActiveRecord::Base) }
 end
