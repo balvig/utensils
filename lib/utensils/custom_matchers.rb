@@ -141,4 +141,5 @@ end
 
 RSpec.configure do |config|
   config.include(Utensils::CustomMatchers, :type => :request)
+  config.include(Utensils::CustomMatchers, :type => :feature)
 end
