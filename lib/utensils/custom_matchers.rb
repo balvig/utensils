@@ -86,7 +86,7 @@ module Utensils
       private
 
       def find_by_url
-        @page.has_css?("img[src='#{@image}']")
+        @page.has_css?("img[src$='#{@image}']")
       end
 
       def find_dragonfly_image
