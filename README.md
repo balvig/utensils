@@ -72,10 +72,11 @@ Resets timecop after each spec
 
 ### upload_macros
 
-Provides fixture_file helper pointing to spec/fixtures directory
+Provides fixture_file and fixture_file_path helper pointing to spec/fixtures directory
 
 ```ruby
-Photo.create(:file => fixture_file('dummy.jpg')) #attaches spec/fixtures/dummy.jpg
+fixture_file_path('dummy.jpg') # 'spec/fixtures/dummy.jpg'
+Photo.create(:file => fixture_file('dummy.jpg')) # attaches File spec/fixtures/dummy.jpg
 ```
 
 ### vcr
