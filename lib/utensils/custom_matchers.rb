@@ -113,23 +113,25 @@ module Utensils
     class Ordered
       def initialize(args)
         @within = args.pop[:within]
-        @models = args
+        @selectors = args.map do |selector|
+          selector.is_a?(String) ? selector : '#' + ApplicationController.helpers.dom_id(selector)
+        end
       end
 
       def matches?(page)
         @page = page
-        @models.each_with_index do |model,i|
-          return false unless @page.has_css?("#{@within} ##{ApplicationController.helpers.dom_id(model)}:nth-child(#{i+1})")
+        @selectors.each_with_index do |selector,i|
+          return false unless @page.has_css?("#{@within} #{selector}:nth-child(#{i+1})")
         end
         true
       end
 
       def failure_message_for_should
-        "expected #{@page.body} to have models in this order: #{@models.inspect}"
+        "expected #{@page.body} to have elements in this order: #{@selectors.inspect}"
       end
 
       def failure_message_for_should_not
-        "expected #{@page.body} to not have models in this order: #{@models.inspect}"
+        "expected #{@page.body} to not have elements in this order: #{@selectors.inspect}"
       end
     end
 
