@@ -19,6 +19,7 @@ require 'utensils/capybara_javascript'
 require 'utensils/custom_matchers'
 require 'utensils/database_cleaner'
 require 'utensils/factory_girl'
+require 'utensils/spring'
 require 'utensils/timecop'
 require 'utensils/upload_macros'
 require 'utensils/vcr'
@@ -65,6 +66,10 @@ FactoryGirl.create(:post)
 # use:
 create(:post)
 ```
+
+### spring
+
+Reloads factories because spring doesn't
 
 ### timecop
 
