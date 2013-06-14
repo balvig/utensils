@@ -19,6 +19,7 @@ require 'utensils/capybara_javascript'
 require 'utensils/custom_matchers'
 require 'utensils/database_cleaner'
 require 'utensils/factory_girl'
+require 'utensils/omniauth'
 require 'utensils/spring'
 require 'utensils/timecop'
 require 'utensils/upload_macros'
@@ -65,6 +66,16 @@ FactoryGirl.create(:post)
 
 # use:
 create(:post)
+```
+
+### omniauth
+
+Puts ominauth in test mode and provides the following macros:
+
+```ruby
+stub_oauth(:facebook, info: { name: 'Bob' })
+stub_oauth_error(:facebook)
+login(user)
 ```
 
 ### spring
