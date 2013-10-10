@@ -5,14 +5,13 @@ VCR.configure do |config|
   config.hook_into :webmock
   config.default_cassette_options = {:record => :new_episodes, :preserve_exact_body_bytes => true}
   config.ignore_localhost = true
+  config.configure_rspec_metadata!
 end
 
 RSpec.configure do |config|
-  config.extend VCR::RSpec::Macros
   config.treat_symbols_as_metadata_keys_with_true_values = true
 
-  config.around(:each, :allow_http) do |example|
-    name = example.metadata[:full_description].underscore.gsub(/[^\w\/]+/, "_")
-    VCR.use_cassette(name) { example.call }
+  config.before(:each, :allow_http) do |example|
+    raise ':allow_http is deprecated, use :vcr instead'
   end
 end
