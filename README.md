@@ -101,7 +101,7 @@ Disables all outgoing http requests except for examples marked with :allow_http,
 
 ```ruby
 describe 'examples' do
-  it 'uses http cached with VCR', :allow_http do
+  it 'uses http cached with VCR', :vcr do
     ...
   end
   it 'disables all outgoing http' do
