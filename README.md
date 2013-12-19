@@ -16,6 +16,7 @@ Add this line to your application's Gemfile:
 ```ruby
 require 'utensils/capybara_extensions'
 require 'utensils/capybara_javascript'
+require 'utensils/capybara_screenshot'
 require 'utensils/custom_matchers'
 require 'utensils/database_cleaner'
 require 'utensils/factory_girl'
@@ -39,6 +40,11 @@ page.find(book_2).drag_to(page.find(book_1))
 
 Switches javascript driver to capybara-webkit and ignores hidden
 elements.
+
+### capybara_screenshot
+
+Automatically saves an html file viewable at
+localhost:3000/tmp/screenshot.html on failing specs
 
 ### custom_matchers
 
