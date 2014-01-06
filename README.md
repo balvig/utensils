@@ -103,7 +103,7 @@ Photo.create(:file => fixture_file('dummy.jpg')) # attaches File spec/fixtures/d
 
 ### vcr
 
-Disables all outgoing http requests except for examples marked with :allow_http, which will be cached with VCR
+Configures vcr to work with rspec and disables all outgoing http requests not marked with :vcr
 
 ```ruby
 describe 'examples' do
