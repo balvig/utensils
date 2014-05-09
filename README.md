@@ -38,8 +38,7 @@ page.find(book_2).drag_to(page.find(book_1))
 
 ### capybara_javascript
 
-Switches javascript driver to capybara-webkit and ignores hidden
-elements.
+Switches javascript driver to poltergeist
 
 ### capybara_screenshot
 
