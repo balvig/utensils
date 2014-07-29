@@ -9,8 +9,6 @@ VCR.configure do |config|
 end
 
 RSpec.configure do |config|
-  config.treat_symbols_as_metadata_keys_with_true_values = true
-
   config.before(:each, :allow_http) do |example|
     raise ':allow_http is deprecated, use :vcr instead'
   end
