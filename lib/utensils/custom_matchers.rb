@@ -10,11 +10,11 @@ module Utensils
         @page.has_css?("##{@model_id}")
       end
 
-      def failure_message_for_should
+      def failure_message
         "expected #{@page.body} to contain element with id: #{@model_id}"
       end
 
-      def failure_message_for_should_not
+      def failure_message_when_negated
         "expected #{@page.body} to not contain element with id: #{@model_id}"
       end
     end
@@ -33,11 +33,11 @@ module Utensils
         @element[:class] == @class_name
       end
 
-      def failure_message_for_should
+      def failure_message
         "expected #{@element.tag_name} to have class #{@class_name} but had #{@element[:class]}"
       end
 
-      def failure_message_for_should_not
+      def failure_message_when_negated
         "expected #{@element.tag_name} to not have class #{@class_name} but it did"
       end
     end
@@ -52,11 +52,11 @@ module Utensils
         @element[:disabled] == "disabled"
       end
 
-      def failure_message_for_should
+      def failure_message
         "expected #{@element.tag_name} to be disabled but it wasn't"
       end
 
-      def failure_message_for_should_not
+      def failure_message_when_negated
         "expected #{@element.tag_name} not to be disabled but it was"
       end
     end
@@ -75,11 +75,11 @@ module Utensils
         @image.is_a?(String) ? find_by_url : find_dragonfly_image
       end
 
-      def failure_message_for_should
+      def failure_message
         "expected #{@page.body} to contain image: #{@image.inspect}"
       end
 
-      def failure_message_for_should_not
+      def failure_message_when_negated
         "expected #{@page.body} to not contain image: #{@image.inspect}"
       end
 
@@ -126,11 +126,11 @@ module Utensils
         true
       end
 
-      def failure_message_for_should
+      def failure_message
         "expected #{@page.body} to have elements in this order: #{@selectors.inspect}"
       end
 
-      def failure_message_for_should_not
+      def failure_message_when_negated
         "expected #{@page.body} to not have elements in this order: #{@selectors.inspect}"
       end
     end
