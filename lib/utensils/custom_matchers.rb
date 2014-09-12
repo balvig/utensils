@@ -76,11 +76,11 @@ module Utensils
       end
 
       def failure_message
-        "expected #{@page.body} to contain image: #{@image.inspect}"
+        "expected html to contain image: #{@image.inspect}"
       end
 
       def failure_message_when_negated
-        "expected #{@page.body} to not contain image: #{@image.inspect}"
+        "expected html to not contain image: #{@image.inspect}"
       end
 
       private
