@@ -21,7 +21,6 @@ require 'utensils/custom_matchers'
 require 'utensils/database_cleaner'
 require 'utensils/factory_girl'
 require 'utensils/omniauth'
-require 'utensils/spring'
 require 'utensils/timecop'
 require 'utensils/upload_macros'
 require 'utensils/vcr'
@@ -82,10 +81,6 @@ stub_oauth(:facebook, info: { name: 'Bob' })
 stub_oauth_error(:facebook)
 login(user)
 ```
-
-### spring
-
-Reloads factories because spring doesn't
 
 ### timecop
 
