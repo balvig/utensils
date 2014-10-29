@@ -72,7 +72,11 @@ module Utensils
 
       def matches?(page)
         @page = page
-        @image.is_a?(String) ? find_by_url : find_dragonfly_image
+        if @image.is_a?(String)
+          find_by_url || find_lazy_loaded_image
+        else
+          find_dragonfly_image
+        end
       end
 
       def failure_message
@@ -85,25 +89,29 @@ module Utensils
 
       private
 
-      def find_by_url
-        @page.has_css?("img[src$='#{@image}']")
-      end
+        def find_by_url
+          @page.has_css?("img[src$='#{@image}']")
+        end
 
-      def find_dragonfly_image
-        @page.all('img').each do |img|
-          url = img['src']
-          dragonfly_hash = url[/media\/([^\/.]+)/, 1]
-          if dragonfly_hash
-            begin
-              dragonfly_job = Dragonfly::Job.deserialize(dragonfly_hash, Dragonfly[:images])
-              return true if dragonfly_job.uid == @image.send(:uid)
-            rescue Dragonfly::Serializer::BadString
-              next
+        def find_lazy_loaded_image
+          @page.has_css?("img[data-original$='#{@image}']")
+        end
+
+        def find_dragonfly_image
+          @page.all('img').each do |img|
+            url = img['src']
+            dragonfly_hash = url[/media\/([^\/.]+)/, 1]
+            if dragonfly_hash
+              begin
+                dragonfly_job = Dragonfly::Job.deserialize(dragonfly_hash, Dragonfly[:images])
+                return true if dragonfly_job.uid == @image.send(:uid)
+              rescue Dragonfly::Serializer::BadString
+                next
+              end
             end
           end
+          return false
         end
-        return false
-      end
     end
 
     def have_image(image_url)
