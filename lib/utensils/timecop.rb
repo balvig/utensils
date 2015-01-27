@@ -1,5 +1,5 @@
 RSpec.configure do |config|
-  config.before(:each) do
+  config.after(:each) do
     Timecop.return
   end
 end
