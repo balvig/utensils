@@ -39,6 +39,12 @@ page.find(book_2).drag_to(page.find(book_1))
 
 Switches javascript driver to poltergeist
 
+To use Poltegeist with [remote debugging](https://github.com/teampoltergeist/poltergeist/blob/master/README.md#remote-debugging-experimental), run test with `POLTERGEIST_DEBUG` set.
+
+```sh
+POLTERGEIST_DEBUG=1 rspec spec/features/broken_feature_spec.rb
+```
+
 ### capybara_screenshot
 
 Automatically saves an html file viewable at
