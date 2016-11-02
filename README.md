@@ -19,6 +19,7 @@ require 'utensils/capybara_javascript'
 require 'utensils/capybara_screenshot'
 require 'utensils/custom_matchers'
 require 'utensils/database_cleaner'
+require 'utensils/email'
 require 'utensils/factory_girl'
 require 'utensils/omniauth'
 require 'utensils/timecop'
@@ -65,6 +66,11 @@ page.should have_order(recipe_3, recipe_1, recipe_2, within: '#recipes') #checks
 ### database_cleaner
 
 Sets up rspec to use database_cleaner instead of transactional fixtures
+
+### email
+
+Clears `ActionMailer::Base.deliveries` before each spec and
+includes https://github.com/bmabey/email-spec helpers.
 
 ### factory_girl
 
