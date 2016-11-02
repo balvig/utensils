@@ -38,7 +38,7 @@ page.find(book_2).drag_to(page.find(book_1))
 
 ### capybara_javascript
 
-Switches javascript driver to poltergeist
+Switches javascript driver to poltergeist, and blacklists slow external JS
 
 To use Poltegeist with [remote debugging](https://github.com/teampoltergeist/poltergeist/blob/master/README.md#remote-debugging-experimental), run test with `POLTERGEIST_DEBUG` set.
 

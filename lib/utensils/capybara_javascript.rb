@@ -1,10 +1,19 @@
-require 'capybara/poltergeist'
-Capybara.register_driver :poltergeist_debug do |app|
-  Capybara::Poltergeist::Driver.new(app, inspector: true)
+require "capybara/poltergeist"
+
+POLTERGEIST_URL_BLACKLIST = %w{
+  tpc.googlesyndication.com
+  www.googletagservices.com
+  fonts.googleapis.com
+  www.google-analytics.com
+  api.mixpanel.com
+  cdn.mxpnl.com
+  tofu.example.com
+  www.googletagmanager.com
+  pagead2.googlesyndication.com
+}
+
+Capybara.register_driver :poltergeist do |app|
+  Capybara::Poltergeist::Driver.new(app, url_blacklist: POLTERGEIST_URL_BLACKLIST, inspector: ENV["POLTERGEIST_DEBUG"])
 end
 
-Capybara.javascript_driver = if ENV["POLTERGEIST_DEBUG"]
-                               :poltergeist_debug
-                             else
-                               :poltergeist
-                             end
+Capybara.javascript_driver = :poltergeist
