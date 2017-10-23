@@ -20,7 +20,7 @@ require 'utensils/capybara_screenshot'
 require 'utensils/custom_matchers'
 require 'utensils/database_cleaner'
 require 'utensils/email'
-require 'utensils/factory_girl'
+require 'utensils/factory_bot'
 require 'utensils/omniauth'
 require 'utensils/timecop'
 require 'utensils/upload_macros'
@@ -72,13 +72,13 @@ Sets up rspec to use database_cleaner instead of transactional fixtures
 Clears `ActionMailer::Base.deliveries` before each spec and
 includes https://github.com/bmabey/email-spec helpers.
 
-### factory_girl
+### factory_bot
 
-Use shorthand for FactoryGirl, ie:
+Use shorthand for FactoryBot, ie:
 
 ```ruby
 # instead of:
-FactoryGirl.create(:post)
+FactoryBot.create(:post)
 
 # use:
 create(:post)
