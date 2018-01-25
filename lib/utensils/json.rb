@@ -3,12 +3,20 @@ module JsonHelpers
     expect(json_response(path))
   end
 
-  def expect_json(body, path = nil)
-    expect(parse_json(body, path))
+  def expect_json(json, path = nil)
+    expect(parse_json(json, path))
   end
 
   def json_response(path = nil)
     parse_json(spec_type_agnostic_response_body, path)
+  end
+
+  def save_and_open_json
+    file_path = Rails.root.join("tmp", "json.rb").to_s
+    output = parse_json(spec_type_agnostic_response_body)
+    output = PP.pp(output, "")
+    File.write(file_path, output, mode: "wb")
+    Launchy.open(file_path)
   end
 
   private
