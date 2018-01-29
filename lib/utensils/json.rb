@@ -11,6 +11,7 @@ module JsonHelpers
     parse_json(spec_type_agnostic_response_body, path)
   end
 
+  # Similar to `save_and_open_page`, to temporarily inspect nicely formatted contents of JSON response
   def save_and_open_json
     file_path = Rails.root.join("tmp", "json.rb").to_s
     output = parse_json(spec_type_agnostic_response_body)
