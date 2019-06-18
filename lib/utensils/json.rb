@@ -48,7 +48,7 @@ module JsonHelpers
       path.split("/").inject(ruby) do |value, key|
         case value
         when Hash
-          value.fetch(key) { "Couldn't find JSON path #{path}" }
+          value.fetch(key) { raise "Couldn't find JSON path #{path}" }
         when Array
           raise "Couldn't find JSON path #{path}" unless key =~ /^\d+$/
           value.fetch(key.to_i) { raise "Couldn't find JSON path #{path}" }
