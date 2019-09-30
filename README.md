@@ -16,7 +16,6 @@ Add this line to your application's Gemfile:
 ```ruby
 require 'utensils/capybara_extensions'
 require 'utensils/capybara_javascript'
-require 'utensils/capybara_screenshot'
 require 'utensils/custom_matchers'
 require 'utensils/database_cleaner'
 require 'utensils/email'
@@ -45,11 +44,6 @@ To use Poltegeist with [remote debugging](https://github.com/teampoltergeist/pol
 ```sh
 POLTERGEIST_DEBUG=1 rspec spec/features/broken_feature_spec.rb
 ```
-
-### capybara_screenshot
-
-Automatically saves an html file viewable at
-localhost:3000/tmp/screenshot.html on failing specs
 
 ### custom_matchers
 
