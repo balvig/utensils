@@ -14,4 +14,7 @@ Gem::Specification.new do |gem|
   gem.name          = "utensils"
   gem.require_paths = ["lib"]
   gem.version       = Utensils::VERSION
+
+  gem.add_dependency "launchy"
+  gem.add_dependency "multi_json"
 end

@@ -21,6 +21,7 @@ require 'utensils/email'
 require 'utensils/factory_bot'
 require 'utensils/omniauth'
 require 'utensils/upload_macros'
+require 'utensils/json'
 ```
 
 ### capybara_extensions

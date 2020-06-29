@@ -1,3 +1,6 @@
+require "launchy"
+require "multi_json"
+
 module JsonHelpers
   def expect_json_response(path = nil)
     expect(json_response(path))
